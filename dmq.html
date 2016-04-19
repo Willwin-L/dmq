@@ -1,0 +1,50 @@
+<html>
+	<head>
+	<meta charset="utf-8">
+		<style>
+			.main{border:2px solid yellow;height:400px;width:500px;margin:100px auto}
+			p{margin:100px auto;height:60px;width:100px;border:3px solid green;font-size:30px;text-align:center;}
+			button{width:80px;height:40px;background:#ABCDEF}
+			.btn{text-align:center}
+			
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<p>ready?</p>
+			<div class="btn">
+				<button onclick="start()">开始</button>
+				<button onclick="stop()">停止</button>
+			</div>
+		</div>
+		<script>
+			//获取文字变换部分的标签
+			var p=document.getElementsByTagName('p')[0];
+			//准备列表
+			var lamp58=['李红','张大诚','赵天杰','钱键','孙通','李强','周瑶','王静','于晓娟','张吉蕊','李天绿','赵小黑','叶白','朱天','邢甜','刘糖','张样','郑乐','荆笑呗'];
+			//alert(p);
+			//开始方法
+			//声明循环变量  为了结束循环
+			var xh;
+			function start(){	
+				//防止多个计数器的生成
+				if(xh){
+					return false;
+				}
+				xh=setInterval(function(){
+					//产生随即下标
+					var rand=Math.floor(Math.random()*lamp58.length);// 0-11
+					//alert(rand);
+					p.firstChild.nodeValue=lamp58[rand];
+				},50);
+			}
+			//停止开始方法
+			
+			function stop(){
+				clearInterval(xh);
+				//把循环变量打回原形
+				xh=undefined;
+			}
+		</script>
+	</body>
+</html>
